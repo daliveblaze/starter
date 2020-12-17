@@ -19,6 +19,19 @@ def holiday_table(table):
 data = pd.read_html(url)
 # Get clean table
 df = holiday_table(data[0])
+
+list = df['Date']
+newlist = []
+
+for item in list:
+    item = item + " 2021"
+    #print(item)
+    newlist.append(item)
+
+df['Date'] = newlist
+
+
+print(df)
 print("Exporting to CSV filename: " + filename)
 df.to_csv(filename, index=False, header=True, encoding="utf-8")
 
