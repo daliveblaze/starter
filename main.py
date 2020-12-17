@@ -8,7 +8,6 @@ filename = "~/uk_bank_holidays_2021.csv"
 # Clean up steps into its own function
 def holiday_table(table):
     # Returns a clean dataframe of holiday table.
-    table = table.drop([0])
     table.columns = ["Date", "Day of Week", "Holiday Name", "Holiday Type", "Details"]
     table = table.reset_index(drop=True)
     # Only get the ones with Bank Holidays
