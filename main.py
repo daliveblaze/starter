@@ -11,6 +11,8 @@ def holiday_table(table):
     table = table.drop([0])
     table.columns = ["Date", "Day of Week", "Holiday Name", "Holiday Type", "Details"]
     table = table.reset_index(drop=True)
+    # Only get the ones with Bank Holidays
+    table = table.loc[table['Holiday Type'] == "Bank holiday"]
     return table
 
 
