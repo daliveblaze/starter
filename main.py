@@ -2,6 +2,9 @@ import pandas as pd
 
 #UK holidays 2021
 
+url = "https://www.timeanddate.com/holidays/uk/2021"
+filename = "~/uk_bank_holidays_2021.csv"
+
 # Clean up steps into its own function
 def holiday_table(table):
     # Returns a clean dataframe of holiday table.
@@ -11,12 +14,10 @@ def holiday_table(table):
     return table
 
 
-url = "https://www.timeanddate.com/holidays/uk/2021"
-
 data = pd.read_html(url)
-
+# Get clean table
 df = holiday_table(data[0])
-
-print(df)
+print("Exporting to CSV filename: " + filename)
+df.to_csv(filename, index=False, header=True, encoding="utf-8")
 
 
